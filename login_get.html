@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COURSE REGISTRATION</title>
+    <script>
+        function validate(){
+          var a = document.forms.name.value;
+                if (a == "") {
+                    alert("Name is empty");
+                    document.forms.name.focus();
+                    return false;
+                }
+                if (!isNaN(a)) {
+                    alert("Name should be in letters only");
+                    document.forms.name.select();
+                    return false;
+                }
+                if (/[^a-zA-Z0-9\-\/]/.test(a)) {
+                    alert('name can only contain alphabet characters');
+                    return false;
+                }
+                var d = document.forms.mail.value;
+                if (d == "") {
+                    alert("Please, Enter your mail id!!!");
+                    document.forms.mail.focus();
+                    return false;
+                }
+                var atposition = d.indexOf("@");
+                var dotposition = d.lastIndexOf(".");
+                if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= d.length) {
+                    alert("Please enter valid mail address!!!!");
+                    return false;
+                }
+    
+                var p = document.forms.pass.value;
+                if (p == "") {
+                    alert("please, Enter your password!!!");
+                    document.forms.pass.focus();
+                    return false;
+                }
+                return true;
+            }
+    </script>
+</head>
+<body>
+    <h2>Course Regitration</h2><br>
+    <h3>Login</h3>
+    <form action="http://localhost:8010/addtext" name="forms" method="get" onsubmit="return validate()">
+        <label>Username</label>
+        <input type="text" name="name" placeholder="Enter your name"><br><br>
+        <label>E-mail</label>
+        <input type="mail" name="mail" placeholder="Enter your mail-id"><br><br>
+        <label>Password</label>
+        <input type="Password" name="pass" placeholder="Enter Password">
+        <input type="submit" name="login" value="Login">
+
+    </form>
+   
+    
+</body>
+</html>
