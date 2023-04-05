@@ -1,6 +1,6 @@
 var http=require('http');
 var querystring=require('querystring');
-var name,email;
+var name,mail;
 http.createServer(function(req,res){
     var data1="";
     req.on('data',function(chunk){
